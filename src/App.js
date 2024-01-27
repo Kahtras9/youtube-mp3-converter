@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import './App.css'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="app">
+            <h1 className="title"> YouTube to MP3 Converter</h1>
+                <h3 className='description'> Please insert a valid YouTube video URL</h3>
+
+            <div className="form">
+                <input 
+                    placeholder="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                    type="text"
+                    className="link"
+                />
+
+                <button onClick="" type="submit" className="button"> Convert </button>   
+
+                <button type="submit" className="download"> Download</button>
+            </div>
+        </div>
+    );
 }
 
 export default App;
