@@ -11,28 +11,29 @@ const App = () => {
     useEffect(() => {
         if (id) {
             const fetchData = () => {
-                let interval = setInterval(async function () {
-                    //When the request starts, we disable our button
+                let interval = setInterval(async function() {
                     setDisabled(true);
+                    //When the request starts, we disable our button
                     const res = await fetch(id);
+          
+        if (res.status === 200 && res.data.status === "ok") {
+            //When the request finishes, we need to enable the button again
+            setDisabled(false);
+            setResponse(res.data);
+            //if the song is fully converted, no need to loop anymore.
+            clearInterval(interval);
+          } else if (res.status === 200 && res.data.status === "fail") {
+            alert("Invalid video ID");
+            setDisabled(false);
+            clearInterval(interval);
+          }
 
-                    if (res.status === 200 && res.data.status === "ok") {
-                        //When the request finishes, we need to enable the button again
-                        setDisabled(false);
-                        setResponse(res.data);
-                        //if the song is fully converted, no need to loop anymore.
-                        clearInterval(interval);
-                    } else if (res.status === 200 && res.data.status === "fail") {
-                        alert ("Invalid Video ID");
-                        setDisabled(false);
-                        clearInterval(interval);
-                    }
-                }, 1000)
-            }
+        }, 2000);
+      }
 
-            fetchData ();
-        }
-    },[id]);            //request only happens when the id changes
+      fetchData();
+    }
+  }, [id]);           //request only happens when the id changes
 
     useEffect (() => {
         if (response) {

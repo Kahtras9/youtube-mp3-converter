@@ -1,4 +1,4 @@
-import axios  from "axios";
+import axios from "axios";
 
 const requestOptions = {
     method: 'GET',
@@ -11,9 +11,9 @@ const requestOptions = {
   };
 
 const fetch = async (id) => {
-    requestOptions.params = { id };
-    const response = await axios.request(requestOptions)
-    return response;
+  requestOptions.params = { id };
+  const response = await axios.request(requestOptions)
+  return response;
 }
 
 export { fetch };
