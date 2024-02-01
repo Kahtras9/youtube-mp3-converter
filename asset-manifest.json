@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/youtube-mp3-converter/static/css/main.da07cf0e.css",
+    "main.js": "/youtube-mp3-converter/static/js/main.b50a59a4.js",
+    "index.html": "/youtube-mp3-converter/index.html",
+    "main.da07cf0e.css.map": "/youtube-mp3-converter/static/css/main.da07cf0e.css.map",
+    "main.b50a59a4.js.map": "/youtube-mp3-converter/static/js/main.b50a59a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da07cf0e.css",
+    "static/js/main.b50a59a4.js"
+  ]
+}
