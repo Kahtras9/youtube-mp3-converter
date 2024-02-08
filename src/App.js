@@ -28,7 +28,7 @@ const App = () => {
             clearInterval(interval);
           }
 
-        }, 2000);
+        }, 1000);
       }
 
       fetchData();
@@ -57,11 +57,15 @@ const App = () => {
                 />
 
                 <button onClick={() => {
-                    const text = link.split("=")[1];       //used split here because the api only takes the id of youtube link after the = symbol
-
-                    if (text) {
-                        setId (text);
-                    }
+                    // const text = link.split("=")[1];       //used split here because the api only takes the id of youtube link after the = symbol
+                    const mobileText = "https://youtu.be/";
+                        if (link.includes(mobileText)) {
+                            const id = link.match(/youtu\.be\/([^?]+)/)[1];
+                            setId(id);
+                        } else {
+                            const id = link.split("=")[1];
+                            setId(id);
+                        }
                 }} type="submit" disabled={disabled} className={disabled ? "btn-disabled" : ""} > Download </button>   
             </div>
         </div>
